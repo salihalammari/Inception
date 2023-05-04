@@ -36,3 +36,6 @@ Virtulization is technology that lets you create useful IT services using resour
 Software called hypervisors also known as a virtual machine monitor (VMM) separate the physical resources from the virtual environments. 
 
 Hypervisors can sit on top of an operating system (desktop or server), hypervisors take your physical resources(Processor, RAM, Hard Disk) and divide them up so that virtual environments can use them.
+
+
+#####
