@@ -1,11 +1,11 @@
 VOLUME = ./slammari/data
-COMPOSE = ./srcs/docker-compose.yml
+COMPOSE = srcs/docker-compose.yml
 
 all: 
 	@mkdir -p $(VOLUME)
 	@mkdir -p $(VOLUME)/mariadb
 	@mkdir -p $(VOLUME)/wordpress
-	docker-compose -f $(COMPOSE) up -d --build
+	docker-compose -f $(COMPOSE) up --build
 
 clean:
 	docker-compose -f $(COMPOSE) down
@@ -14,7 +14,7 @@ clean:
 fclean:
 	docker-compose -f $(COMPOSE) down --rmi all
 	docker volume rm $$(docker volume ls -f dangling=true -q)
-	@rm -rf ./hyunjcho
+	@rm -rf ./slammari
 
 re:
 	@make fclean
