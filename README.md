@@ -38,4 +38,30 @@ Software called hypervisors also known as a virtual machine monitor (VMM) separa
 Hypervisors can sit on top of an operating system (desktop or server), hypervisors take your physical resources(Processor, RAM, Hard Disk) and divide them up so that virtual environments can use them.
 
 
-#####
+### Docker Architecture
+
+Image
+
+- An image is a read-only template with instructions for creating a Docker container. you may build, an image which is based on the Ubuntu image or SQL Server.
+
+Container 
+
+- a Cantainer is a runnable instance of an image. you can create, start, stop, move, or delete a container using the docker API or CLI.
+
+Regitry 
+
+- A Docker regitry Docker images. Docker Hub is a public regitry that anyone can use, and Docker is configured to look for images on Docker Hub by default. you can even run your own private registry.
+
+Client
+
+- The Docker client is the primary way that many Docker users interact with Docker. when you use commands such as docjer run, the client sends these commands to dockerd, wich carries them out. the docker commad uses the docker API.
+
+Docker daemon
+
+- the Docker daemen listens for Docker API requests and manges Docker objects such as images, containers, networks, and volumes.
+
+Namespaces
+
+- Docker uses a technology called namespaces to provide the isolated workspace called the container. When you run a container, Docker create a set of namespaces for that container. these namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limite to that namespace.
+
+
