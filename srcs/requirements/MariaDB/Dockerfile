@@ -1,7 +1,9 @@
 FROM debian:buster
 
-COPY ./tools/db.sql /
+RUN apt-get update && apt-get install mariadb-server -y
 
-run apt-get update; apt-get install mariadb-server;
+COPY ./tools/db.sql db
 
-    mysql < db.sql;
+RUN 
+
+CMD [ "sleep" ,"15000"]
