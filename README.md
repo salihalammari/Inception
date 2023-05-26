@@ -64,4 +64,31 @@ Namespaces
 
 - Docker uses a technology called namespaces to provide the isolated workspace called the container. When you run a container, Docker create a set of namespaces for that container. these namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limite to that namespace.
 
+Why do developers use Docker? 🤔
+
+The great advantage ofDockeris the ability to model each container as an image that can be stored locally.
+
+Some Dockerfile keywords :
+
+FROM :
+    
+    Allows you to tell Docker under which OS your virtual machine should run.
+    This is the first keyword of your Dockerfile and this one is mandatory .
+    The most common are debian:buster for Debian or alpine:x:xx for Linux .
+
+RUN :
+    Allows you to launch a command on your virtual machine
+    In general, the firstRUNprovided in the Dockerfile consist of updating your VM's resources, such as apk, or adding basic utilities such as vim , curl or sudo .
+
+COPY :
+    You have it ! This allows you to copy a file.
+    Copy it? From where?
+    You simply indicate where your file to copy is located from the directory where your Dockerfile is located, then where you want to copy it to your virtual machine.
+
+A docker image is a folder, it must contain yourDockerfileat the root of the folder but can also contain a bunch of other files to then be able to copy them directly into your VM.
+
+Docker-Compose:
+
+Docker Compose is a tool that was developed to help define and share multi-container applications.
+WithCompound, we can create a file YAML to define the services and, with a single command, bring everything into road or all of it to disassemble.
 
