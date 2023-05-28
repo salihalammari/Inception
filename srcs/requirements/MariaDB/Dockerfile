@@ -6,4 +6,4 @@ COPY ./tools/db.sql db
 
 RUN 
 
-CMD [ "sleep" ,"15000"]
+CMD [ "" ,""]

@@ -1,23 +1,24 @@
 version: '3.3'
 
-#   nginx:
-#     build: requirements/nginx
-#     container_name: nginx
-#     image: nginx
-#     ports:
-#       - "443:443"
-
-
 services:
-  mariadb:
-    container_name: saliha
-    build:
-      dockerfile: ./requirements/MariaDB/Dockerfile
-    image: saliha
-    restart: always
-    env_file:
-      - ./.env
-    # volumes:
-    #   - ./data:/var/lib/mysql
+
+  mynginx:
+    build: requirements/nginx
+    container_name: nginxcontainer
+    image: nginximage
     ports:
-      - 3306:3306
+      - "443:443"
+
+
+  # mariadb:
+  #   container_name: saliha
+  #   build:
+  #     dockerfile: ./requirements/MariaDB/Dockerfile
+  #   image: saliha
+  #   restart: always
+  #   env_file:
+  #     - ./.env
+  #   # volumes:
+  #   #   - ./data:/var/lib/mysql
+  #   ports:
+  #     - 3306:3306

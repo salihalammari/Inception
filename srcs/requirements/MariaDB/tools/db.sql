@@ -4,3 +4,4 @@ CREATE USER '$db_user'@'%' IDENTIFIED BY '$db_passwd';
 GRANT ALL PRIVILEGES ON *.* TO '$db_user'@'%';
 FLUSH PRIVILEGES;
 EXIT
+exec 
