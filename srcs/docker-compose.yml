@@ -1,25 +1,50 @@
 version: '3.3'
 
+volumes:
+  wp_vol:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/slammari/Desktop/wordpress'
+  db_vol:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/slammari/Desktop/mariadb'
+
 services:
-
-  mynginx:
-    build: requirements/nginx
-    container_name: nginxcontainer
-    image: nginximage
-    ports:
-      - "443:443"
-      - "9000:9000"
-
-
-  # mariadb:
-  #   container_name: saliha
-  #   build:
-  #     dockerfile: ./requirements/MariaDB/Dockerfile
-  #   image: saliha
+  # nginx:
+  #   build: requirements/nginx
+  #   container_name: nginx
+  #   image: nginx
+  #   restart: always
+  #   ports:
+  #     - 443:443
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - wordpress
+  #   volumes:
+  #     - wp_vol:/var/www/html
+  mariadb:
+    container_name: mariadb
+    build: requirements/MariaDB
+    image: mariadb
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - db_vol:/var/lib/mysql
+  # wordpress:
+  #   container_name: wordpress
+  #   build: requirements/Wordpress
+  #   image: wordpress
   #   restart: always
   #   env_file:
-  #     - ./.env
-  #   # volumes:
-  #   #   - ./data:/var/lib/mysql
-  #   ports:
-  #     - 3306:3306
+  #     - .env
+  #   depends_on:
+  #     - mariadb
+  #   volumes:
+  #     - wp_vol:/var/www/html

@@ -1,9 +1,6 @@
 #!/bin/bash
 
-SQL_DATABASE=salihadb
-SQL_USER=saliha
-SQL_PASSWORD=123
-SQL_ROOT_PASSWORD=321
+mkdir -p /var/www/html
 
 service mysql start 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
