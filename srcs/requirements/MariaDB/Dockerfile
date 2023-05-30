@@ -6,4 +6,4 @@ COPY ./tools/script.sh .
 
 RUN chmod a+x ./script.sh
 
-CMD [ "./script.sh"]
+ENTRYPOINT [ "./script.sh"]

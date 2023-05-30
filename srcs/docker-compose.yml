@@ -8,6 +8,7 @@ services:
     image: nginximage
     ports:
       - "443:443"
+      - "9000:9000"
 
 
   # mariadb:
