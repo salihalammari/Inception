@@ -1,18 +1,18 @@
 version: '3.3'
 
 volumes:
-  wp_vol:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/Users/slammari/Desktop/wordpress'
+  # wp_vol:
+  #   driver: local
+  #   driver_opts:
+  #     type: 'none'
+  #     o: 'bind'
+  #     device: '/Users/slammari/Desktop/Inception/wordpress'
   db_vol:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/Users/slammari/Desktop/mariadb'
+      device: '/Users/slammari/Desktop/Inception/mariadb'
 
 services:
   # nginx:
