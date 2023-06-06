@@ -1,33 +1,33 @@
 version: '3.3'
 
 volumes:
-  # wp_vol:
-  #   driver: local
-  #   driver_opts:
-  #     type: 'none'
-  #     o: 'bind'
-  #     device: '/Users/slammari/Desktop/Inception/wordpress'
+  wp_vol:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/slammari/Desktop/Inception/data/wordpress'
   db_vol:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/Users/slammari/Desktop/Inception/mariadb'
+      device: '/Users/slammari/Desktop/Inception/data/mariadb'
 
 services:
-  # nginx:
-  #   build: requirements/nginx
-  #   container_name: nginx
-  #   image: nginx
-  #   restart: always
-  #   ports:
-  #     - 443:443
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     - wordpress
-  #   volumes:
-  #     - wp_vol:/var/www/html
+  nginx:
+    build: requirements/nginx
+    container_name: nginx
+    image: nginx
+    restart: always
+    ports:
+      - 443:443
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
+    volumes:
+      - wp_vol:/var/www/html
   mariadb:
     container_name: mariadb
     build: requirements/MariaDB
@@ -37,14 +37,14 @@ services:
       - .env
     volumes:
       - db_vol:/var/lib/mysql
-  # wordpress:
-  #   container_name: wordpress
-  #   build: requirements/Wordpress
-  #   image: wordpress
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     - mariadb
-  #   volumes:
-  #     - wp_vol:/var/www/html
+  wordpress:
+    container_name: wordpress
+    build: requirements/Wordpress
+    image: wordpress
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+    volumes:
+      - wp_vol:/var/www/html

@@ -17,6 +17,15 @@ What is docker is an open source standalone application which works as an engine
 
 * Simply we can say Docker is a container management service.
 
+⚙️ Types of issues Docker fixes
+A dependency is not compatible with your software version 😅
+You already own the dependency but in a different version 😑
+Your dependency does not exist on your OS 😓
+Your addiction crashes on launch 😮‍💨
+etc…
+
+Docker is a tool that can package an application and its dependencies into an isolated container.
+
 ## What is a Docker container?
 
 A container is a standard unit of software that packages up code and all its dependenices so the application runs quickly and reliably from one computing environement to another.
