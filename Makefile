@@ -31,6 +31,7 @@ clean:
 fclean: 
 	rm -rf ./data
 	docker-compose -f  ./srcs/docker-compose.yml down --rmi all
+	docker system prune -af
 re:
 	@make fclean
 	make all
