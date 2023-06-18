@@ -101,3 +101,14 @@ Docker-Compose:
 Docker Compose is a tool that was developed to help define and share multi-container applications.
 WithCompound, we can create a file YAML to define the services and, with a single command, bring everything into road or all of it to disassemble.
 
+
+What is the difference between Alpine and Debian ?
+
+Alpine Linux is a lightweight, security-oriented Linux distribution , it contains as few files and tools as possible in order to allow the developer to install them himself if necessary.
+
+Debian is the universal operating system. Debian systems currently use the Linux kernel or the FreeBSD kernel .
+
+
+For my part, being more comfortable with this system, I will use Debian.
+
+

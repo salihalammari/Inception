@@ -5,6 +5,8 @@ cd /var/www/html/
 chown -R www-data:www-data /var/www/html
 wp core download --locale=nl_NL --allow-root
 
+mv wp-config-sample.php wp-config.php
+
 wp config create --dbname=${SQL_DATABASE} \
                 --dbuser=${SQL_USER} \
                 --dbpass=${SQL_PASSWORD} --dbhost=mariadb  --allow-root
