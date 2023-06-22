@@ -6,13 +6,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '$HOME/data/wordpress'
+      device: '/home/slammari/Desktop/data/Wordpress'
   db_vol:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '$HOME/data/mariadb'
+      device: '/home/slammari/Desktop/data/mariadb'
 
 services:
   nginx:
@@ -39,7 +39,7 @@ services:
       - db_vol:/var/lib/mysql
   wordpress:
     container_name: wordpress
-    build: requirements/Wordpress
+    build: requirements/WordPress
     image: wordpress
     restart: always
     env_file:
