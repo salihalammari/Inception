@@ -1,4 +1,4 @@
-COMPOSE = /home/slammari/Desktop/Inception/srcs/docker-compose.yml
+COMPOSE = /Users/slammari/Desktop/Inception/srcs/docker-compose.yml
 HOME = /home/slammari/Desktop
 
 up:

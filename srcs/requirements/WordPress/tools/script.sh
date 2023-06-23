@@ -21,11 +21,11 @@ wp config create --dbname=$SQL_DATABASE \
                 --dbpass=$SQL_PASSWORD --dbhost=$SQL_HOST  --allow-root
 
 wp core install --url="https://localhost" \
-                --title="page" --admin_user="saliha" \
-                --admin_password="125" \
-                --admin_email="slammari@student.1337.ma" --allow-root
+                --title="page" --admin_user=$SQL_USER \
+                --admin_password=$WP_PWD \
+                --admin_email=$ADMIN_EMAIL --allow-root
 
 
 wp user create "${USER}" "${USER_EMAIL}" --user_pass=${WP_PWD} --role=editor --allow-root
 
-php-fpm7.4 --nodaemonize
+php-fpm7.4 -F
