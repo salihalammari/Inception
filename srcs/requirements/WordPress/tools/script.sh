@@ -27,5 +27,5 @@ wp core install --url="https://localhost" \
 
 
 wp user create "${USER}" "${USER_EMAIL}" --user_pass=${WP_PWD} --role=editor --allow-root
-
+wp theme install twentysixteen --activate --allow-root
 php-fpm7.4 -F

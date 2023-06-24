@@ -6,45 +6,53 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/slammari/Desktop/data/Wordpress'
+      device: "${HOME}/data/Wordpress"
   db_vol:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/slammari/Desktop/data/mariadb'
-
+      device: "${HOME}/data/mariadb"
+networks:
+  inception:
+    driver: bridge
 services:
-  nginx:
-    build: requirements/nginx
-    container_name: nginx
-    image: nginx
-    restart: always
-    ports:
-      - 443:443
-    env_file:
-      - .env
-    depends_on:
-      - wordpress
-    volumes:
-      - wp_vol:/var/www/html
-  mariadb:
-    container_name: mariadb
-    build: requirements/MariaDB
-    image: mariadb
-    restart: always
-    env_file:
-      - .env
-    volumes:
-      - db_vol:/var/lib/mysql
-  wordpress:
-    container_name: wordpress
-    build: requirements/WordPress
-    image: wordpress
-    restart: always
-    env_file:
-      - .env
-    depends_on:
-      - mariadb
-    volumes:
-      - wp_vol:/var/www/html
+ nginx: 
+  container_name: nginx
+  build: ./requirements/nginx
+  networks:
+    - inception
+  image: nginx:latest
+  restart: always
+  ports:
+    - "443:443"
+  env_file:
+    - .env
+  depends_on:
+    - wordpress
+  volumes:
+    - wp_vol:/var/www/html
+ mariadb:
+  container_name: mariadb
+  networks:
+   - inception
+  build: ./requirements/MariaDB
+  image: mariadb:latest
+  restart: always
+  env_file:
+    - .env
+  volumes:
+    - db_vol:/var/lib/mysql
+ wordpress:
+  container_name: wordpress
+  networks:
+    - inception
+  build: ./requirements/WordPress
+  image: wordpress:latest
+  restart: always
+  env_file:
+    - .env
+  depends_on:
+    - mariadb
+  volumes:
+    - wp_vol:/var/www/html

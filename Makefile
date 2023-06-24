@@ -1,5 +1,4 @@
-COMPOSE = /Users/slammari/Desktop/Inception/srcs/docker-compose.yml
-HOME = /home/slammari/Desktop
+COMPOSE = ./srcs/docker-compose.yml
 
 up:
 	mkdir -p ${HOME}/data ${HOME}/data/mariadb ${HOME}/data/Wordpress
